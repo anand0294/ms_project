@@ -35,7 +35,6 @@ router.post("/register", async (request, response) => {
   }
 });
 
-
 router.post("/login", async (request, response) => {
   const user = await User.findOne({ email: request.body.email });
   if (!user) {
