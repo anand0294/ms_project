@@ -34,4 +34,17 @@ router.get("/get-all-movies", authMiddleware, async (_, response) => {
   }
 });
 
-module.exports = router;
+router.put("/update-movie", authMiddleware, async (request, response) => {
+  try {
+    await Movie.findByIdAndUpdate(request.body.movieId, request.body);
+    response.send({
+      success: true,
+      message: "Movie Updated Successfully",
+    });
+  } catch (err) {
+    response.status(500).send({
+      success: false,
+      message: err.message
+    });
+  }
+});
