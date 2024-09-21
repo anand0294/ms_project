@@ -48,3 +48,20 @@ router.put("/update-movie", authMiddleware, async (request, response) => {
     });
   }
 });
+
+router.delete("/delete-movie", authMiddleware, async (request, response) => {
+  try {
+    await Movie.findByIdAndDelete(request.query.movieId);
+    response.send({
+      success: true,
+      message: "Movie Deleted Successfully",
+    });
+  } catch (err) {
+    response.status(500).send({
+      success: false,
+      message: err.message
+    });
+  }
+});
+
+module.exports = router;
