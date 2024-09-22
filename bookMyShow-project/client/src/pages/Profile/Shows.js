@@ -58,23 +58,23 @@ function Shows({ setOpenShowsModal, theatre }) {
     }
   };
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     dispatch(ShowLoading());
-  //     const response = await DeleteShow(id);
+  const handleDelete = async (id) => {
+    try {
+      dispatch(ShowLoading());
+      const response = await DeleteShow(id);
 
-  //     if (response.success) {
-  //       message.success(response.message);
-  //       getData();
-  //     } else {
-  //       message.error(response.message);
-  //     }
-  //     dispatch(HideLoading());
-  //   } catch (error) {
-  //     message.error(error.message);
-  //     dispatch(HideLoading());
-  //   }
-  // };
+      if (response.success) {
+        message.success(response.message);
+        getData();
+      } else {
+        message.error(response.message);
+      }
+      dispatch(HideLoading());
+    } catch (error) {
+      message.error(error.message);
+      dispatch(HideLoading());
+    }
+  };
 
   const columns = [
     {
@@ -123,9 +123,9 @@ function Shows({ setOpenShowsModal, theatre }) {
             {rowData.bookedSeats.length === 0 && (
               <i
                 className="ri-delete-bin-line"
-                // onClick={() => {
-                //   handleDelete(rowData._id);
-                // }}
+                onClick={() => {
+                  handleDelete(rowData._id);
+                }}
               ></i>
             )}
           </div>

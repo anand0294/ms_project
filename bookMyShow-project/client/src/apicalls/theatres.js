@@ -64,3 +64,12 @@ export const GetAllShowsByTheatre = async (payload) => {
     return err;
   }
 }
+
+export const DeleteShow = async (showId) => {
+  try {
+    const response = await axiosInstance.delete(`/api/theatre/delete-show?showId=${showId}`);
+    return response.data;
+  } catch (err) {
+    return err;
+  }
+}
