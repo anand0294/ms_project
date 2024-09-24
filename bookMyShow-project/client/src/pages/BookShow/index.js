@@ -176,7 +176,7 @@ function BookShow() {
 
                 <h1 className="text-sm">
                   <b>Total Price</b> : USD{" "}
-                  {Math.ceil((selectedSeats.length * show.ticketPrice) / 84)}
+                  {Math.ceil((selectedSeats.length * show.ticketPrice)/84)}
                 </h1>
               </div>
             </div>
